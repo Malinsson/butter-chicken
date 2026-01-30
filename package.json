@@ -1,0 +1,26 @@
+{
+  "name": "butter-chicken",
+  "version": "1.0.0",
+  "description": "Built a data-driven travel recommendation engine combining live exchange rates and weather conditions to rank affordable destinations.",
+  "homepage": "https://github.com/Malinsson/butter-chicken#readme",
+  "bugs": {
+    "url": "https://github.com/Malinsson/butter-chicken/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Malinsson/butter-chicken.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "Nodemon index.js"
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "nodejs": "^0.0.0",
+    "nodemon": "^3.1.11"
+  }
+}
