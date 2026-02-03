@@ -154,3 +154,5 @@ const data = [
 {country: 'Nigeria', index: 8.3, currency: 'ngn', currencyName: 'Nigerian Naira'},
 {country: 'Syria', index: 6.2, currency: 'syp', currencyName: 'Syrian Pound'},
 ];
+
+export default data;
