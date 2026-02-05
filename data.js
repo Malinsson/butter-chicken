@@ -145,7 +145,7 @@ const data = [
 {country: 'Sri Lanka', index: 19.0, currency: 'lkr', currencyName: 'Sri Lankan Rupee'},
 {country: 'Yemen', index: 18.2, currency: 'yer', currencyName: 'Yemeni Rial'},
 {country: 'Ghana', index: 18.1, currency: 'ghs', currencyName: 'Ghanaian Cedi'},
-{country: 'Venezuela', index: 17.4, currency: 'ves', currencyName: 'Venezuelan Bolívar'},
+{country: 'Venezuela', index: 17.4, currency: 'veb', currencyName: 'Venezuelan Bolívar'},
 {country: 'Madagascar', index: 13.7, currency: 'mga', currencyName: 'Malagasy Ariary'},
 {country: 'Ivory Coast', index: 12.7, currency: 'xof', currencyName: 'CFA Franc'},
 {country: 'Solomon Islands', index: 12.6, currency: 'sbd', currencyName: 'Solomon Islands Dollar'},
