@@ -72,7 +72,7 @@ const data = [
 {country: 'Belarus', index: 63.9, currency: 'byn', currencyName: 'Belarusian Ruble'},
 {country: 'Serbia', index: 63.2, currency: 'rsd', currencyName: 'Serbian Dinar'},
 {country: 'Russia', index: 61.6, currency: 'rub', currencyName: 'Russian Ruble'},
-{country: 'Kosovo (Disputed Territory)', index: 60.5, currency: 'eur', currencyName: 'Euro'},
+{country: 'Kosovo', index: 60.5, currency: 'eur', currencyName: 'Euro'},
 {country: 'Fiji', index: 59.9, currency: 'fjd', currencyName: 'Fijian Dollar'},
 {country: 'Iraq', index: 58.0, currency: 'iqd', currencyName: 'Iraqi Dinar'},
 {country: 'Bahamas', index: 57.1, currency: 'bsd', currencyName: 'Bahamian Dollar'},
