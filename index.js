@@ -1,9 +1,19 @@
 import { getWeatherData } from './utils/api/weather.js';
+import { userPrompts } from './cli/prompts.js';
 
-//Test code for getting average weather data 
-//for each city choosen by region
-const region = 'asia';
-const results = await getWeatherData(region);
 
-console.log(results);
-console.log(results.length);
+try {
+    //Display CLI prompts and get user-input
+    const userInput = await userPrompts();
+
+    //Get weather data with user region answer
+    const weatherData = await getWeatherData(userInput.region);
+
+    //Display array for testing
+    console.log(weatherData);
+    console.log(weatherData.length);
+    console.log(userInput);
+
+} catch (error) {
+    console.error('Error:', error.message);
+}
