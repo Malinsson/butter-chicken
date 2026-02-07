@@ -7,19 +7,17 @@ const indexMax = Math.max(...indexValues);
 
 const exchangeRates = await exchangeRate();
 
-const scores = exchangeRates.map(item => {
+const costScores = exchangeRates.map(item => {
     const normalizedIndex = (item.index - indexMin) / (indexMax - indexMin);
     const score = item.value * normalizedIndex;
 
     return {
         ...item,
         normalizedIndex,
-        score
+        score 
     };
 });
 
-console.log(scores);
+console.log(costScores);
 
-export default scores;
-
-
+export default costScores;
