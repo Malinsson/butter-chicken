@@ -15,7 +15,7 @@ export const filterResults = async (userInput) => {
                 ...rateItem
             };
 
-        // Removes countries that don't have a matching currency in the exchange rates data
+        // Removes countries from weather data that don't have a matching currency in the exchange rates data
         }).filter(item => item.currency);
 
         return combined;
