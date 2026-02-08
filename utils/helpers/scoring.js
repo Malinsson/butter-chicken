@@ -20,4 +20,3 @@ const costScores = exchangeRates.map(item => {
 
 console.log(costScores);
 
-export default costScores;

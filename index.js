@@ -1,10 +1,10 @@
 import express from 'express';
 import { getWeatherData } from './utils/api/weather.js';
 import { userPrompts } from './cli/prompts.js';
+import { filterResults } from './utils/helpers/filter.js';
 
 const app = express();
 const port = 3000;
-
 
 
 try {
@@ -18,6 +18,8 @@ try {
     console.log(weatherData);
     console.log(weatherData.length);
     console.log(userInput);
+    const filteredRates = await filterResults(userInput);
+    console.log(filteredRates);
     
 } catch (error) {
     console.error('Error:', error.message);
