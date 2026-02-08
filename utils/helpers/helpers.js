@@ -24,7 +24,7 @@ export function getWeatherScore(userPreference, heatCategory) {
   const heatIndex = weatherScale.indexOf(heatCategory);
 
   if (preferredIndex === -1 || heatIndex === -1) {
-    return 0.5;
+    return 0.5; // Return a neutral score if either category is invalid
   }
 
   const distance = Math.abs(preferredIndex - heatIndex);

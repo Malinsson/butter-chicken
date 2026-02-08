@@ -8,7 +8,8 @@ export const scoreResults = async (userInput) => {
         return [];
     }
 
-    const WEIGHTS = { cost: 0.7, weather: 0.3 };
+    // Weights for cost and weather in the final score
+    const WEIGHTS = { cost: 0.8, weather: 0.2 };
 
     // Normalize index and exchange rate values for scoring
     const indexValues = combinedData.map(item => item.index);
@@ -21,21 +22,20 @@ export const scoreResults = async (userInput) => {
 
     const scores = combinedData.map(item => {
         const normalizedIndex = indexMax === indexMin
-            ? 0.5
-            : (item.index - indexMin) / (indexMax - indexMin);
+            ? 0.5 // If all index values are the same, assign a neutral score
+            : 1 - (item.index - indexMin) / (indexMax - indexMin);
 
         const normalizedExchange = exchangeMax === exchangeMin
-            ? 0.5
+            ? 0.5 // If all exchange rates are the same, assign a neutral score
+            // Inverted normalization so higher == better
             : 1 - (item.value - exchangeMin) / (exchangeMax - exchangeMin);
 
-        // Combine normalized scores with weights (70% cost, 30% weather)
         const costScore = normalizedIndex * normalizedExchange;
         const weatherScore = getWeatherScore(userInput.weather, item.heatCategory);
         const totalScore = costScore * WEIGHTS.cost + weatherScore * WEIGHTS.weather;
 
         return {
             ...item,
-            value,
             normalizedExchange,
             normalizedIndex,
             costScore,
