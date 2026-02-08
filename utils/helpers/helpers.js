@@ -16,3 +16,21 @@ export function calculateAverageTemperature(temperatures) {
 
   return Math.round(average * 10) / 10;
 }
+
+const weatherScale = ['cold', 'cool', 'mild', 'warm', 'hot'];
+
+export function getWeatherScore(userPreference, heatCategory) {
+  const preferredIndex = weatherScale.indexOf(userPreference);
+  const heatIndex = weatherScale.indexOf(heatCategory);
+
+  if (preferredIndex === -1 || heatIndex === -1) {
+    return 0.5;
+  }
+
+  const distance = Math.abs(preferredIndex - heatIndex);
+  return 1 - distance / (weatherScale.length - 1);
+}
+
+export function formatCurrency(selectedCurrency, countryValue, countryCurrency) {
+  return '1 ' + selectedCurrency + ' = ' + countryValue + ' ' + countryCurrency;
+}
