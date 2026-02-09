@@ -1,11 +1,5 @@
 import data from '../data/data.js';
 
-const excludedCountries = new Set([
-  'Venezuela',
-  'Syria',
-  'Yemen'
-]);
-
 const dataByCurrency = Object.fromEntries(
     data.map(item => [item.currency, item])
 );
