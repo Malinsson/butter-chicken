@@ -9,7 +9,7 @@ export const scoreResults = async (userInput) => {
     }
 
     // Weights for cost and weather in the final score
-    const WEIGHTS = { cost: 0.7, weather: 0.3 };
+    const WEIGHTS = { cost: 0.65, weather: 0.35 };
 
     // Normalize index and exchange rate values for scoring
     const indexValues = combinedData.map(item => item.index);

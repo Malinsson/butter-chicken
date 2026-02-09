@@ -19,6 +19,7 @@ export function calculateAverageTemperature(temperatures) {
   return Math.round(average * 10) / 10;
 }
 
+// Array to define the weather scale for scoring using the index position as a reference for distance calculation
 const weatherScale = ['cold', 'cool', 'mild', 'warm', 'hot'];
 
 export function getWeatherScore(userPreference, heatCategory) {
