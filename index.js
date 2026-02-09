@@ -1,11 +1,6 @@
-import express from 'express';
 import { getWeatherData } from './utils/api/weather.js';
 import { userPrompts } from './cli/prompts.js';
 import scoreResults from './utils/helpers/scoring.js';
-
-const app = express();
-const port = 3000;
-
 
 try {
     //Display CLI prompts and get user-input
@@ -25,8 +20,3 @@ try {
 } catch (error) {
     console.error('Error:', error.message);
 }
-
-
-app.listen(port, () => {
-    console.log(`Server is running on port ${port}`);
-});

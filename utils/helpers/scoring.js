@@ -1,5 +1,5 @@
 import filterResults from "./filter.js";
-import { getWeatherScore, formatCurrency } from "./helpers.js";
+import { getWeatherScore } from "./helpers.js";
 
 export const scoreResults = async (userInput) => {
     const combinedData = await filterResults(userInput);
