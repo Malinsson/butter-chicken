@@ -12,7 +12,7 @@ try {
     const userInput = await userPrompts();
     
     //Get weather data with user region answer
-    const weatherData = await getWeatherData(userInput.region);
+    //const weatherData = await getWeatherData(userInput.region);
     
     //Display array for testing
     //console.log(weatherData);
@@ -21,7 +21,7 @@ try {
     const result = await scoreResults(userInput);
     console.log(result);
 
-    
+
 } catch (error) {
     console.error('Error:', error.message);
 }
