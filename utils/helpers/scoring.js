@@ -1,5 +1,5 @@
 import filterResults from "./filter.js";
-import { getWeatherScore } from "./helpers.js";
+import { getWeatherScore, getMinMax } from "./helpers.js";
 
 export const scoreResults = async (userInput) => {
     const combinedData = await filterResults(userInput);
@@ -12,13 +12,8 @@ export const scoreResults = async (userInput) => {
     const WEIGHTS = { cost: 0.65, weather: 0.35 };
 
     // Normalize index and exchange rate values for scoring
-    const indexValues = combinedData.map(item => item.index);
-    const indexMin = Math.min(...indexValues);
-    const indexMax = Math.max(...indexValues);
-
-    const exchangeValues = combinedData.map(item => item.value);
-    const exchangeMin = Math.min(...exchangeValues);
-    const exchangeMax = Math.max(...exchangeValues);
+    const { min: indexMin, max: indexMax } = getMinMax(combinedData.map(item => item.index));
+    const { min: exchangeMin, max: exchangeMax } = getMinMax(combinedData.map(item => item.value));
 
     const scores = combinedData.map(item => {
         const normalizedIndex = indexMax === indexMin
@@ -31,6 +26,7 @@ export const scoreResults = async (userInput) => {
             : 1 - (item.value - exchangeMin) / (exchangeMax - exchangeMin);
 
         const costScore = normalizedIndex * normalizedExchange;
+        
         const weatherScore = getWeatherScore(userInput.weather, item.heatCategory);
         const totalScore = costScore * WEIGHTS.cost + weatherScore * WEIGHTS.weather;
 

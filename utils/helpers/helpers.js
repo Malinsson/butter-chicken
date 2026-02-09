@@ -19,6 +19,13 @@ export function calculateAverageTemperature(temperatures) {
   return Math.round(average * 10) / 10;
 }
 
+export function getMinMax(values) {
+    return {
+        min: Math.min(...values),
+        max: Math.max(...values)
+    };
+}
+
 // Array to define the weather scale for scoring using the index position as a reference for distance calculation
 const weatherScale = ['cold', 'cool', 'mild', 'warm', 'hot'];
 
@@ -42,4 +49,9 @@ export function WelcomeMessage() {
   const title = figlet.textSync('Welcome to Butter-Chicken!');
   const subtitle = 'Find the best value for money travel destinations based on exchange rates and weather conditions.';
   return chalk.blue(`${title}\n${subtitle}\n`);
+}
+
+export function GoodbyeMessage() {
+  const message = figlet.textSync('Goodbye!');
+  return chalk.green(`${message}\nThanks for using Butter-Chicken! Safe travels!`);
 }
