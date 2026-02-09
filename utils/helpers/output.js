@@ -4,15 +4,34 @@ import figlet from 'figlet';
 
 const log = console.log;
 
+const getHeatColor = (category) => {
+    switch (category) {
+        case 'hot':
+            return chalk.red;
+        case 'warm':
+            return chalk.keyword('orange');
+        case 'mild':
+            return chalk.yellow;
+        case 'cool':
+            return chalk.cyan;
+        case 'cold':
+            return chalk.blue;
+        default:
+            return chalk.white;
+    }
+};
+
+
 export const displayResults = async (userInput) => {
     const scoredResults = await scoreResults(userInput);
     log(chalk.green(figlet.textSync('Top Results:')));
     log(chalk.blue(`Based on your input, here are the top ${scoredResults.length} countries that offer the best value for money considering both exchange rates and weather conditions:\n`));
     scoredResults.forEach((result, index) => {
-        log(`${index + 1}. ${result.country} - Capital: ${result.city}`);
+        const heatColor = getHeatColor(result.heatCategory);
+        log(chalk.bold(`${index + 1}. ${result.country} - Capital: ${result.city}`));
         log(`   Currency: ${result.currencyName}`);
         log(`   Exchange Rate: 1 ${userInput.currency.toUpperCase()} = ${result.value} ${result.currency.toUpperCase()}`);
-        log(`   Weather: ${result.heatCategory}, Average Temperature: ${result.averageTemperature}°C`);
+        log(`   Weather: ${result.heatCategory}, ${heatColor(`Average Temperature: ${result.averageTemperature}°C`)}`);
         log(chalk.green(`   Total Score: ${(result.totalScore * 10).toFixed(2)} /10`));
         log('\n');
     });

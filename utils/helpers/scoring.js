@@ -5,7 +5,7 @@ export const scoreResults = async (userInput) => {
     const combinedData = await filterResults(userInput);
 
     if (combinedData.length === 0) {
-        return [];
+        throw new Error('No matching results found based on your input. Please try different criteria.');
     }
 
     // Weights for cost and weather in the final score
