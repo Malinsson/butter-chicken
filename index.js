@@ -1,8 +1,10 @@
-import { getWeatherData } from './utils/api/weather.js';
 import { userPrompts } from './cli/prompts.js';
-import scoreResults from './utils/helpers/scoring.js';
+import { WelcomeMessage } from './utils/helpers/helpers.js';
+import displayResults from './utils/helpers/output.js';
 
 try {
+    console.log(WelcomeMessage());
+    
     //Display CLI prompts and get user-input
     const userInput = await userPrompts();
     
@@ -13,7 +15,7 @@ try {
     //console.log(weatherData);
    // console.log(weatherData.length);
    // console.log(userInput);
-    const result = await scoreResults(userInput);
+    const result = await displayResults(userInput);
     console.log(result);
 
 

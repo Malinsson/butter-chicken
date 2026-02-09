@@ -1,3 +1,5 @@
+import chalk from 'chalk';
+import figlet from 'figlet';
 
 export function categorizeWeather(temp) {
   if (temp >= 25) return 'hot';
@@ -33,4 +35,10 @@ export function getWeatherScore(userPreference, heatCategory) {
 
 export function formatCurrency(selectedCurrency, countryValue, countryCurrency) {
   return '1 ' + selectedCurrency + ' = ' + countryValue + ' ' + countryCurrency;
+}
+
+export function WelcomeMessage() {
+  const title = figlet.textSync('Welcome to Butter-Chicken!');
+  const subtitle = 'Find the best value for money travel destinations based on exchange rates and weather conditions.';
+  return chalk.blue(`${title}\n${subtitle}`);
 }

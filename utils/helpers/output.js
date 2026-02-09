@@ -1,0 +1,21 @@
+import scoreResults from "./scoring.js";
+import chalk from 'chalk';
+import figlet from 'figlet';
+
+const log = console.log;
+
+export const displayResults = async (userInput) => {
+    const scoredResults = await scoreResults(userInput);
+    log(chalk.green(figlet.textSync('Top Results:')));
+    log(chalk.blue(`Based on your input, here are the top ${scoredResults.length} countries that offer the best value for money considering both exchange rates and weather conditions:\n`));
+    scoredResults.forEach((result, index) => {
+        log(`${index + 1}. ${result.country} - Capital: ${result.city}`);
+        log(`   Currency: ${result.currencyName}`);
+        log(`   Exchange Rate: 1 ${userInput.currency.toUpperCase()} = ${result.value} ${result.currency.toUpperCase()}`);
+        log(`   Weather: ${result.heatCategory}, Average Temperature: ${result.averageTemperature}°C`);
+        log(chalk.green(`   Total Score: ${(result.totalScore * 10).toFixed(2)} /10`));
+        log('\n');
+    });
+};
+
+export default displayResults;
