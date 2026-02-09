@@ -16,7 +16,6 @@ try {
    // console.log(weatherData.length);
    // console.log(userInput);
     const result = await displayResults(userInput);
-    console.log(result);
 
 
 } catch (error) {

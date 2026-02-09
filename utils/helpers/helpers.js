@@ -40,5 +40,5 @@ export function formatCurrency(selectedCurrency, countryValue, countryCurrency) 
 export function WelcomeMessage() {
   const title = figlet.textSync('Welcome to Butter-Chicken!');
   const subtitle = 'Find the best value for money travel destinations based on exchange rates and weather conditions.';
-  return chalk.blue(`${title}\n${subtitle}`);
+  return chalk.blue(`${title}\n${subtitle}\n`);
 }
