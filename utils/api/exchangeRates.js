@@ -1,15 +1,10 @@
 import data from '../data/data.js';
 
-const excludedCountries = new Set([
-  'Venezuela',
-  'Syria',
-  'Yemen'
-]);
-
 const dataByCurrency = Object.fromEntries(
     data.map(item => [item.currency, item])
 );
 
+// Fetches exchange rates for a given currency and filters them based on the available data in our dataset. Currency by user input, defaults to sek if none provided
 const exchangeRate = async (currencyChoice = 'sek') => {
     try {
         const currency = currencyChoice.toLowerCase();
@@ -17,6 +12,7 @@ const exchangeRate = async (currencyChoice = 'sek') => {
         const response = await fetch(url);
         const result = await response.json();
         const exchangeRates = Object.entries(result[currency])
+            //Filter out currencies that we don't have data for in our dataset
             .filter(([currency]) => dataByCurrency[currency])
             .map(([currency, value]) => ({
                 currency,
