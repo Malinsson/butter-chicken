@@ -24,8 +24,14 @@ const getHeatColor = (category) => {
 
 export const displayResults = async (userInput) => {
     const scoredResults = await scoreResults(userInput);
+
     log(chalk.green(figlet.textSync('Top Results:')));
-    log(chalk.blue(`Based on your input, here are the top ${scoredResults.length} countries that offer the best value for money considering both exchange rates and weather conditions:\n`));
+    if(scoredResults.length < userInput.top) {
+        log(chalk.blue(`Based on your input, only ${scoredResults.length} matching countries were found that offer the best value for money considering both exchange rates and weather conditions:\n`));
+    } else {
+        log(chalk.blue(`Based on your input, here are the top ${scoredResults.length} countries that offer the best value for money considering both exchange rates and weather conditions:\n`));
+    }
+
     scoredResults.forEach((result, index) => {
         const heatColor = getHeatColor(result.heatCategory);
         log(chalk.bold(`${index + 1}. ${result.country} - Capital: ${result.city}`));

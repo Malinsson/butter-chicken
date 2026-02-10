@@ -1,5 +1,5 @@
 import { userPrompts } from './cli/prompts.js';
-import { WelcomeMessage } from './utils/helpers/helpers.js';
+import { GoodbyeMessage, WelcomeMessage } from './utils/helpers/helpers.js';
 import displayResults from './utils/helpers/output.js';
 
 try {
@@ -10,6 +10,8 @@ try {
     
     //Process the user input and display results
     const result = await displayResults(userInput);
+
+    console.log(GoodbyeMessage());
 
 } catch (error) {
     console.error('Error:', error.message);
