@@ -37,3 +37,16 @@ export async function userPrompts() {
 
     return answers;
 }
+
+export async function askToContinue() {
+    const answer = await inquirer.prompt([
+        {
+            type: 'confirm',
+            name: 'continue',
+            message: 'Do you want to search for another destination?',
+            default: false
+        }
+    ]);
+
+    return answer.continue;
+}

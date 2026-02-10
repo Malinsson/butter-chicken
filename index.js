@@ -1,6 +1,10 @@
-import { userPrompts } from './cli/prompts.js';
+import { userPrompts, askToContinue } from './cli/prompts.js';
 import { GoodbyeMessage, WelcomeMessage } from './utils/helpers/helpers.js';
 import displayResults from './utils/helpers/output.js';
+
+let continueApp = false;
+
+do {
 
 try {
     console.log(WelcomeMessage());
@@ -10,9 +14,13 @@ try {
     
     //Process the user input and display results
     const result = await displayResults(userInput);
-
-    console.log(GoodbyeMessage());
+    
+    continueApp = await askToContinue();
 
 } catch (error) {
     console.error('Error:', error.message);
 }
+
+} while (continueApp);
+
+console.log(GoodbyeMessage());
