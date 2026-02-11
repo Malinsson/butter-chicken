@@ -1,13 +1,17 @@
 import { userPrompts, askToContinue } from './cli/prompts.js';
 import { GoodbyeMessage, WelcomeMessage } from './utils/helpers/helpers.js';
 import displayResults from './utils/helpers/output.js';
+import { FatalError } from './utils/exceptions/Fatalerror.js'
 
-let continueApp = false;
+let continueApp;
+
+console.log(WelcomeMessage());
 
 do {
 
+    continueApp = false;
+
 try {
-    console.log(WelcomeMessage());
     
     //Display CLI prompts and get user-input
     const userInput = await userPrompts();
@@ -18,7 +22,13 @@ try {
     continueApp = await askToContinue();
 
 } catch (error) {
-    console.error('Error:', error.message);
+    if (error instanceof FatalError){
+        console.error('Fatal error:', error.message);
+        process.exit(1);
+    } else {
+
+        console.log('Error: ', error.message)
+    }
 }
 
 } while (continueApp);
