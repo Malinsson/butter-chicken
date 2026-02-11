@@ -36,6 +36,9 @@ try {
 
         console.log(chalk.yellow('Error: '), error.message);
     }
+} finally {
+
+    spinner.stop();
 }
 
 } while (continueApp);

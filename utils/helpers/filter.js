@@ -12,7 +12,7 @@ export const filterResults = async (userInput) => {
         
         return {
             ...weatherItem,
-            ...rateItem
+            ...(rateItem ??{ currency: null })
         };
         
         // Removes countries from weather data that don't have a matching currency in the exchange rates data
