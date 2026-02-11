@@ -7,13 +7,13 @@ export async function userPrompts() {
         type: 'list',
         name: 'region',
         message: 'Which region are you interested in?',
-        choices: ['Africa', 'Asia', 'America', 'Europe', 'North America', 'South America', 'Oceania']
+        choices: ['Africa', 'Asia', 'America', 'Europe', 'Oceania']
     },
     {
         type: 'list',
         name: 'currency',
         message: 'What is your home currency?',
-        choices: ['USD', 'EUR', 'GBP', 'SEK', 'NOK', 'DKK']
+        choices: ['USD', 'EUR', 'GBP', 'SEK']
     },
     {
         type: 'list',
@@ -23,7 +23,8 @@ export async function userPrompts() {
         { name: 'Hot', value: 'hot' },
         { name: 'Warm', value: 'warm' },
         { name: 'Mild', value: 'mild' },
-        { name: 'Cool', value: 'cool' }
+        { name: 'Cool', value: 'cool' },
+        { name: 'Cold', value: 'cold' }
         ]
     },
     {
@@ -31,6 +32,11 @@ export async function userPrompts() {
         name: 'top',
         message: 'How many recommendations do you want?',
         default: 5,
+        filter: (input) => {
+        if (input > 20) return 20;
+        if (input < 1) return 1;
+        return input;
+        },
         validate: (input) => input > 0 && input <= 20 || 'Please enter a number between 1 and 20'
     }
     ]);
