@@ -1,10 +1,17 @@
 //From https://restcountries.com/
 //Get capital cities by region with coordinates and country
 
+import { FatalError } from "../exceptions/Fatalerror.js";
+
 export async function getCapitalCities(region) {
   const url = `https://restcountries.com/v3.1/region/${region}?fields=name,capital,capitalInfo`;
 
-  const response = await fetch(url);
+  let response;
+  try {
+    response = await fetch(url);
+  } catch (error){
+    throw new FatalError(`No connection to restcountry api`);
+  }
 
   if (!response.ok) {
     throw new Error(`Failed to fetch countries: ${response.status}`);
