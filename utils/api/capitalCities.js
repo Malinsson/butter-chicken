@@ -10,7 +10,7 @@ export async function getCapitalCities(region) {
   try {
     response = await fetch(url);
   } catch (error){
-    throw new FatalError(`No connection to restcountry api`);
+    throw new FatalError(`Could not connect to RestCountries API.`);
   }
 
   if (!response.ok) {

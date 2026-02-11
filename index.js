@@ -3,6 +3,7 @@ import { GoodbyeMessage, WelcomeMessage } from './utils/helpers/helpers.js';
 import displayResults from './utils/helpers/output.js';
 import { FatalError } from './utils/exceptions/Fatalerror.js'
 import ora from 'ora';
+import chalk from 'chalk';
 
 let continueApp;
 
@@ -28,11 +29,12 @@ try {
 
 } catch (error) {
     if (error instanceof FatalError){
-        console.error('Fatal error:', error.message);
+        console.error(chalk.red('Fatal error:'), error.message);
+        console.error(chalk.red('The application will now exit.'));
         process.exit(1);
     } else {
 
-        console.log('Error: ', error.message)
+        console.log(chalk.yellow('Error: '), error.message);
     }
 }
 

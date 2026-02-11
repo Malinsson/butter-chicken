@@ -9,9 +9,9 @@ const getHeatColor = (category) => {
         case 'hot':
             return chalk.red;
         case 'warm':
-            return chalk.keyword('orange');
-        case 'mild':
             return chalk.yellow;
+        case 'mild':
+            return chalk.yellowBright;
         case 'cool':
             return chalk.cyan;
         case 'cold':

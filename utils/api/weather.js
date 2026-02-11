@@ -7,7 +7,7 @@ export async function getWeather(latitude, longitude) {
   const response = await fetch(url);
 
   if (!response.ok) {
-    throw new Error(`Weather API fel: ${response.status}`);
+    throw new Error(`Weather API error: ${response.status}`);
   }
 
   const data = await response.json();

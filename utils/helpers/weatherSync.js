@@ -1,5 +1,5 @@
 import { getCapitalCities } from '../api/capitalCities.js';
-import { getWeather } from '../api/weather.js';  // ← LÄGG TILL DENNA
+import { getWeather } from '../api/weather.js';
 import { FatalError } from '../exceptions/Fatalerror.js';
 import { categorizeWeather, calculateAverageTemperature } from './helpers.js';
 
@@ -33,7 +33,7 @@ export async function getWeatherData(region) {
     }
 
     if (weatherData.length === 0) {
-        throw new FatalError('Kunde inte hämta väderdata för någon stad.');
+        throw new FatalError('Could not fetch weather data for any cities in the selected region.');
     } 
 
     if(errors > 0) {

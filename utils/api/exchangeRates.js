@@ -15,11 +15,11 @@ const exchangeRate = async (currencyChoice = 'sek') => {
     try {
         response = await fetch(url);
     } catch (error) {
-        throw new FatalError('Kunde inte ansluta till Currency API.');
+        throw new FatalError('Could not connect to Currency API.');
     }
 
     if (!response.ok) {
-        throw new FatalError(`Currency API fel: ${response.status}`);
+        throw new FatalError(`Currency API error: ${response.status}`);
     }
 
     const result = await response.json();
