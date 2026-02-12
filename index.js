@@ -6,6 +6,7 @@ import ora from 'ora';
 import chalk from 'chalk';
 
 let continueApp;
+let spinner;
 
 console.log(WelcomeMessage());
 
@@ -18,7 +19,7 @@ try {
     //Display CLI prompts and get user-input
     const userInput = await userPrompts();
 
-    const spinner = ora('Fetching top results...').start();
+    spinner = ora('Fetching top results...').start();
     
     //Process the user input and display results
     const result = await displayResults(userInput);
