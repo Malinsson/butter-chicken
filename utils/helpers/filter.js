@@ -1,5 +1,5 @@
 import exchangeRate from "../api/exchangeRates.js";
-import { getWeatherData } from "./weatherSync.js";
+import { getWeatherData } from "./weatherAll.js";
 
 // Filters and combines exchange rate and weather data based on user input
 export const filterResults = async (userInput) => {
