@@ -6,6 +6,7 @@ import ora from 'ora';
 import chalk from 'chalk';
 
 let continueApp;
+
 let spinner;
 
 console.log(WelcomeMessage());
@@ -14,7 +15,7 @@ do {
 
     continueApp = false;
 
-try {
+    try {
     
     //Display CLI prompts and get user-input
     const userInput = await userPrompts();
@@ -25,22 +26,24 @@ try {
     const result = await displayResults(userInput);
 
     spinner.stop();
-    
+
     continueApp = await askToContinue();
 
-} catch (error) {
-    if (error instanceof FatalError){
-        console.error(chalk.red('Fatal error:'), error.message);
-        console.error(chalk.red('The application will now exit.'));
-        process.exit(1);
-    } else {
+    } catch (error) {
+        if (error instanceof FatalError){
+            console.error(chalk.red('Fatal error:'), error.message);
+            console.error(chalk.red('The application will now exit.'));
+            process.exit(1);
+        } else {
 
-        console.log(chalk.yellow('Error: '), error.message);
+            console.log(chalk.yellow('Error: '), error.message);
+        }
+
+    } finally {
+        if (spinner) {
+            spinner.stop();
+        }
     }
-} finally {
-
-    spinner.stop();
-}
 
 } while (continueApp);
 
