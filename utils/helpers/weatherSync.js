@@ -1,6 +1,6 @@
 import { getCapitalCities } from '../api/capitalCities.js';
 import { getWeather } from '../api/weather.js';
-import { FatalError } from '../exceptions/Fatalerror.js';
+import { FatalError } from '../exceptions/FatalError.js';
 import { categorizeWeather, calculateAverageTemperature } from './helpers.js';
 
 const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));

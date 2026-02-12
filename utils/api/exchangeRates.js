@@ -1,5 +1,5 @@
 import data from '../data/data.js';
-import { FatalError } from '../exceptions/Fatalerror.js'
+import { FatalError } from '../exceptions/FatalError.js'
 
 const dataByCurrency = Object.fromEntries(
     data.map(item => [item.currency, item])

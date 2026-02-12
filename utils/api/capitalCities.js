@@ -1,7 +1,7 @@
 //From https://restcountries.com/
 //Get capital cities by region with coordinates and country
 
-import { FatalError } from "../exceptions/Fatalerror.js";
+import { FatalError } from "../exceptions/FatalError.js";
 
 export async function getCapitalCities(region) {
   const url = `https://restcountries.com/v3.1/region/${region}?fields=name,capital,capitalInfo`;

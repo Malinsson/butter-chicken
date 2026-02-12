@@ -1,7 +1,7 @@
 import { userPrompts, askToContinue } from './cli/prompts.js';
 import { GoodbyeMessage, WelcomeMessage } from './utils/helpers/helpers.js';
 import displayResults from './utils/helpers/output.js';
-import { FatalError } from './utils/exceptions/Fatalerror.js'
+import { FatalError } from './utils/exceptions/FatalError.js'
 import ora from 'ora';
 import chalk from 'chalk';
 
